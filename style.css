@@ -1,0 +1,46 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+html, body { margin: 0; min-height: 100%; background: #111318; color: #f5f5f5; }
+body { min-height: 100svh; }
+button { font: inherit; }
+.app { min-height: 100svh; display: flex; flex-direction: column; align-items: center; padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom)); }
+.topbar { width: min(100%, 620px); display: flex; align-items: end; justify-content: space-between; gap: 12px; padding: 2px 4px 10px; }
+.eyebrow { margin: 0 0 4px; color: #aeb8c8; font-size: 10px; font-weight: 750; letter-spacing: .14em; }
+h1, h2 { margin: 0; font-size: clamp(19px, 5vw, 24px); line-height: 1.1; }
+.hint, .footer-note { color: #aeb8c8; font-size: 12px; }
+.hint { margin: 0 0 2px; text-align: right; }
+.diagram-wrap { flex: 1; min-height: 0; width: 100%; display: flex; align-items: center; justify-content: center; }
+.diagram-stage { position: relative; width: min(100%, calc((100svh - 112px) * .5625)); max-height: calc(100svh - 112px); aspect-ratio: 864 / 1536; }
+.diagram { display: block; width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
+.bone-marker { position: absolute; z-index: 2; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #fff; transform: translate(-50%, -50%); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.bone-marker span { display: grid; place-items: center; width: clamp(32px, 9vw, 40px); height: clamp(32px, 9vw, 40px); border: 2px solid #fff; border-radius: 50%; background: #1769aa; box-shadow: 0 2px 12px #000a; font-size: 15px; font-weight: 800; }
+.bone-marker b { padding: 5px 8px; border-radius: 6px; background: #101820eF; border: 1px solid #ffffff70; box-shadow: 0 2px 8px #0008; font-size: clamp(10px, 2.8vw, 12px); white-space: nowrap; }
+.bone-marker:focus-visible { outline: 3px solid #ffd166; outline-offset: 5px; border-radius: 8px; }
+/* Coordinates are relative to the 864 × 1536 diagram. */
+.spine { left: 50%; top: 36%; }
+.pelvis { left: 50%; top: 57%; }
+.right-femur { left: 39%; top: 69%; }
+.left-lower-leg { left: 64%; top: 82%; }
+.footer-note { width: min(100%, 620px); margin: 8px 0 0; text-align: center; }
+
+.viewer-overlay { position: fixed; inset: 0; z-index: 10; background: #101318; display: flex; flex-direction: column; padding: max(14px, env(safe-area-inset-top)) 14px max(12px, env(safe-area-inset-bottom)); }
+.viewer-overlay[hidden] { display: none; }
+.viewer-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.close-button { width: 44px; height: 44px; border: 1px solid #59616c; border-radius: 50%; background: #252b34; color: white; font-size: 21px; cursor: pointer; }
+.viewer-content { position: relative; flex: 1; min-height: 0; margin: 12px 0; overflow: hidden; border-radius: 14px; background: radial-gradient(ellipse at center, #303945, #141920 72%); }
+model-viewer { width: 100%; height: 100%; min-height: 280px; --poster-color: transparent; }
+.model-message { position: absolute; inset: auto 14px 14px; padding: 14px; border: 1px solid #647080; border-radius: 12px; background: #171d25ed; text-align: center; line-height: 1.45; pointer-events: none; }
+.model-message strong { font-size: 15px; }
+.model-message p { margin: 6px 0 0; color: #c3ccd7; font-size: 12px; }
+.model-message code { color: #fff; }
+.model-message .file-name { color: #8dc8ff; font-weight: 700; }
+.viewer-help { margin: 0; color: #aeb8c8; text-align: center; font-size: 12px; }
+@media (max-height: 650px) {
+  .topbar { padding-bottom: 5px; }
+  .diagram-stage { width: min(100%, calc((100svh - 90px) * .5625)); max-height: calc(100svh - 90px); }
+  .footer-note { margin-top: 4px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bone-marker span { transition: transform .15s ease, background .15s ease; }
+  .bone-marker:active span { transform: scale(.92); background: #0d4d80; }
+}

@@ -1,1 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111318">
+  <title>Rickets Skeleton — Interactive Bone Viewer</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">INTERACTIVE ANATOMY</p>
+        <h1>Rickets skeleton</h1>
+      </div>
+      <p class="hint">Tap a highlighted bone</p>
+    </header>
 
+    <section class="diagram-wrap" aria-label="Skeleton diagram with interactive bone markers">
+      <div class="diagram-stage">
+        <img class="diagram" src="images/rickets-skeleton.png" alt="Front view illustration of a skeleton showing changes associated with rickets">
+        <!-- Marker positions are percentages of the original image area. Adjust in style.css. -->
+        <button class="bone-marker spine" data-bone="spine" aria-label="View spine 3D model"><span>1</span><b>Spine</b></button>
+        <button class="bone-marker pelvis" data-bone="pelvis" aria-label="View pelvis 3D model"><span>2</span><b>Pelvis</b></button>
+        <button class="bone-marker right-femur" data-bone="rightFemur" aria-label="View right femur 3D model"><span>3</span><b>Right femur</b></button>
+        <button class="bone-marker left-lower-leg" data-bone="leftLowerLeg" aria-label="View left tibia and fibula 3D model"><span>4</span><b>Left tibia &amp; fibula</b></button>
+      </div>
+    </section>
+
+    <footer class="footer-note">Select a numbered marker to explore the corresponding bone.</footer>
+  </main>
+
+  <section class="viewer-overlay" id="viewerOverlay" hidden aria-modal="true" role="dialog" aria-labelledby="viewerTitle">
+    <header class="viewer-header">
+      <div>
+        <p class="eyebrow">3D BONE VIEWER</p>
+        <h2 id="viewerTitle">Bone</h2>
+      </div>
+      <button class="close-button" id="closeViewer" aria-label="Close 3D viewer">✕</button>
+    </header>
+
+    <div class="viewer-content">
+      <model-viewer id="boneModel"
+        camera-controls
+        touch-action="pan-y"
+        interaction-prompt="auto"
+        shadow-intensity="1"
+        exposure="1"
+        environment-image="neutral"
+        alt="Interactive 3D bone model">
+      </model-viewer>
+      <div class="model-message" id="modelMessage">
+        <strong>3D model not added yet</strong>
+        <p>This viewer is ready. Add the matching <code>.glb</code> file to the <code>models</code> folder, then refresh the page.</p>
+        <p class="file-name" id="expectedFile"></p>
+      </div>
+    </div>
+    <p class="viewer-help">Drag to rotate · Pinch to zoom · Use two fingers to move</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
