@@ -17,8 +17,8 @@ h1, h2 { margin: 0; font-size: clamp(19px, 5vw, 24px); line-height: 1.1; }
 .bone-marker b { padding: 5px 8px; border-radius: 6px; background: #101820eF; border: 1px solid #ffffff70; box-shadow: 0 2px 8px #0008; font-size: clamp(10px, 2.8vw, 12px); white-space: nowrap; }
 .bone-marker:focus-visible { outline: 3px solid #ffd166; outline-offset: 5px; border-radius: 8px; }
 /* Coordinates are relative to the 864 × 1536 diagram. */
-.spine { left: 50%; top: 36%; }
-.pelvis { left: 50%; top: 57%; }
+.spine { left: 53%; top: 36%; }
+.pelvis { left: 57%; top: 52%; }
 .right-femur { left: 39%; top: 69%; }
 .left-lower-leg { left: 64%; top: 82%; }
 .footer-note { width: min(100%, 620px); margin: 8px 0 0; text-align: center; }
