@@ -15,11 +15,11 @@ const bones = {
     file: "models/pelvis.glb"
   },
   rightFemur: {
-    title: "Right femur",
+    title: "Femur",
     file: "models/right-femur.glb"
   },
   leftLowerLeg: {
-    title: "Left tibia & fibula",
+    title: "Tibia & Fibula",
     file: "models/left-tibia-fibula.glb"
   }
 };
