@@ -8,19 +8,19 @@ const closeButton = document.getElementById("closeViewer");
 const bones = {
   spine: {
     title: "Spine",
-    file: "models/spine.glb"
+    file: "Assets/Models/Spine.glb"
   },
   pelvis: {
     title: "Pelvis",
-    file: "models/pelvis.glb"
+    file: "Assets/Models/Pelvis.glb"
   },
   rightFemur: {
     title: "Femur",
-    file: "models/right-femur.glb"
+    file: "Assets/Models/Femur.glb"
   },
   leftLowerLeg: {
     title: "Tibia & Fibula",
-    file: "models/left-tibia-fibula.glb"
+    file: "Assets/Models/TibiaFibula.glb"
   }
 };
 
